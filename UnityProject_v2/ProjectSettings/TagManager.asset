@@ -13,6 +13,7 @@ TagManager:
   - LastTag
   - Player2
   - winner
+  - Player1
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - Kart
   - Water
   - UI
-  - 
-  - 
+  - PlayerCat
+  - PlayerAstro
   - 
   - 
   - 

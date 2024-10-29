@@ -11,6 +11,7 @@ namespace KartGame.UI
         public void LoadTargetScene() 
         {
             SceneManager.LoadSceneAsync(SceneName);
+
         }
     }
 }
