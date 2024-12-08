@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AstronauteMove : MonoBehaviour
+public class CatMove : MonoBehaviour
 {
     public float speed = 5f; // Vitesse de déplacement
     private Vector3 movement;
@@ -11,8 +11,8 @@ public class AstronauteMove : MonoBehaviour
     void Update()
     {
         // Récupérer l'entrée utilisateur (clavier)
-        movement.x = Input.GetAxis("Horizontal");
-        movement.z = Input.GetAxis("Vertical");
+        movement.x = Input.GetAxis("Horizontal2");
+        movement.z = Input.GetAxis("Vertical2");
 
 
         //Calcul de la position du joueur si il fait son déplacement
