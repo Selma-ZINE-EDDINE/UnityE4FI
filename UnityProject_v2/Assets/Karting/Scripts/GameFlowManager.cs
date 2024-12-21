@@ -4,7 +4,7 @@ using UnityEngine.Playables;
 using KartGame.KartSystems;
 using UnityEngine.SceneManagement;
 
-public enum GameState{Intro,Play, Won, Lost,World}
+public enum GameState { Play, Won, Lost }
 
 public class GameFlowManager : MonoBehaviour
 {
@@ -35,11 +35,6 @@ public class GameFlowManager : MonoBehaviour
     [Tooltip("Prefab for the lose game message")]
     public DisplayMessage loseDisplayMessage;
 
-    [Header("world")]
-    [Tooltip("This string has to be the name of the scene you want to load when exploring world")]
-    public string worldSceneName = "world";
-    [Tooltip("Prefab for the world game message")]
-    public DisplayMessage worldDisplayMessage;
 
     public GameState gameState { get; private set; }
 
@@ -53,74 +48,8 @@ public class GameFlowManager : MonoBehaviour
     string m_SceneToLoad;
     float elapsedTimeBeforeEndScene = 0;
 
-    
-
-    // Ajoute un état pour la scène d'introduction si besoin
-    public string introSceneName = "IntroMenu";
-
     void Start()
     {
-        /*if (autoFindKarts)
-        {
-            karts = FindObjectsOfType<ArcadeKart>();
-            if (karts.Length > 0)
-            {
-                if (!playerKart) playerKart = karts[0];
-            }
-            DebugUtility.HandleErrorIfNullFindObject<ArcadeKart, GameFlowManager>(playerKart, this);
-        }
-
-        m_ObjectiveManager = FindObjectOfType<ObjectiveManager>();
-		DebugUtility.HandleErrorIfNullFindObject<ObjectiveManager, GameFlowManager>(m_ObjectiveManager, this);
-
-        m_TimeManager = FindObjectOfType<TimeManager>();
-        DebugUtility.HandleErrorIfNullFindObject<TimeManager, GameFlowManager>(m_TimeManager, this);
-
-        AudioUtility.SetMasterVolume(1);
-
-        winDisplayMessage.gameObject.SetActive(false);
-        loseDisplayMessage.gameObject.SetActive(false);
-
-        m_TimeManager.StopRace();
-        foreach (ArcadeKart k in karts)
-        {
-			k.SetCanMove(false);
-        }
-
-        //run race countdown animation
-        ShowRaceCountdownAnimation();
-        StartCoroutine(ShowObjectivesRoutine());
-
-        StartCoroutine(CountdownThenStartRaceRoutine());*/
-
-
-        /*m_ObjectiveManager = FindObjectOfType<ObjectiveManager>();
-        DebugUtility.HandleErrorIfNullFindObject<ObjectiveManager, GameFlowManager>(m_ObjectiveManager, this);
-        m_TimeManager = FindObjectOfType<TimeManager>();
-        DebugUtility.HandleErrorIfNullFindObject<TimeManager, GameFlowManager>(m_TimeManager, this);
-        // Si tu veux démarrer dans la scène d'introduction
-        if (SceneManager.GetActiveScene().name == introSceneName)
-        {
-            gameState = GameState.Intro;
-        }
-
-        if (gameState == GameState.Intro || gameState == GameState.World)
-        {
-            // Ne pas démarrer la course dans la scène d'intro ou World
-            m_TimeManager.StopRace();
-            foreach (ArcadeKart k in karts)
-            {
-                k.SetCanMove(false);
-            }
-        }
-        else
-        {
-            // Les autres scènes lancent le compte à rebours et la course
-            ShowRaceCountdownAnimation();
-            StartCoroutine(ShowObjectivesRoutine());
-            StartCoroutine(CountdownThenStartRaceRoutine());
-        }*/
-
         if (autoFindKarts)
         {
             karts = FindObjectsOfType<ArcadeKart>();
@@ -153,108 +82,47 @@ public class GameFlowManager : MonoBehaviour
         StartCoroutine(ShowObjectivesRoutine());
 
         StartCoroutine(CountdownThenStartRaceRoutine());
-
-        gameState = GameState.Intro;
-
-
     }
 
-    IEnumerator CountdownThenStartRaceRoutine() {
+    IEnumerator CountdownThenStartRaceRoutine()
+    {
         yield return new WaitForSeconds(3f);
         StartRace();
     }
 
-    void StartRace() {
+    void StartRace()
+    {
         foreach (ArcadeKart k in karts)
         {
-			k.SetCanMove(true);
+            k.SetCanMove(true);
         }
         m_TimeManager.StartRace();
     }
 
-    void ShowRaceCountdownAnimation() {
+    void ShowRaceCountdownAnimation()
+    {
         raceCountdownTrigger.Play();
     }
 
-    IEnumerator ShowObjectivesRoutine() {
+    IEnumerator ShowObjectivesRoutine()
+    {
         while (m_ObjectiveManager.Objectives.Count == 0)
             yield return null;
         yield return new WaitForSecondsRealtime(0.2f);
         for (int i = 0; i < m_ObjectiveManager.Objectives.Count; i++)
         {
-           if (m_ObjectiveManager.Objectives[i].displayMessage)m_ObjectiveManager.Objectives[i].displayMessage.Display();
-           yield return new WaitForSecondsRealtime(1f);
+            if (m_ObjectiveManager.Objectives[i].displayMessage) m_ObjectiveManager.Objectives[i].displayMessage.Display();
+            yield return new WaitForSecondsRealtime(1f);
         }
     }
 
-    public void LoadWorldScene()
-    {
-        SceneManager.LoadScene(worldSceneName);
-        gameState = GameState.World;
-    }
-
-    public void LoadPlayScene()
-    {
-        SceneManager.LoadScene("MainScene"); 
-        gameState = GameState.Play;
-    }
 
     void Update()
     {
-        // Gestion des états comme d'habitude , chatgpt
-        /*if (gameState == GameState.Play)
-        {
-            // Logique pour terminer le jeu (victoire ou défaite)
-            if (m_ObjectiveManager.AreAllObjectivesCompleted())
-                EndGame(true);
 
-            if (m_TimeManager.IsFinite && m_TimeManager.IsOver)
-                EndGame(false);
-        }*/
-
-        //base
-        /*if (gameState != GameState.Play)
+        if (gameState != GameState.Play)
         {
             elapsedTimeBeforeEndScene += Time.deltaTime;
-            if(elapsedTimeBeforeEndScene >= endSceneLoadDelay)
-            {
-
-                float timeRatio = 1 - (m_TimeLoadEndGameScene - Time.time) / endSceneLoadDelay;
-                endGameFadeCanvasGroup.alpha = timeRatio;
-
-                float volumeRatio = Mathf.Abs(timeRatio);
-                float volume = Mathf.Clamp(1 - volumeRatio, 0, 1);
-                AudioUtility.SetMasterVolume(volume);
-
-                // See if it's time to load the end scene (after the delay)
-                if (Time.time >= m_TimeLoadEndGameScene)
-                {
-                    SceneManager.LoadScene(m_SceneToLoad);
-                    gameState = GameState.Play;
-                }
-            }
-        }
-        else
-        {
-            if (m_ObjectiveManager.AreAllObjectivesCompleted())
-                EndGame(true);
-
-            if (m_TimeManager.IsFinite && m_TimeManager.IsOver)
-                EndGame(false);
-        }*/
-
-        /*if(gameState == GameState.Play)
-        {
-            if (m_ObjectiveManager.AreAllObjectivesCompleted())
-                EndGame(true);
-
-            if (m_TimeManager.IsFinite && m_TimeManager.IsOver)
-                EndGame(false);
-        }*/
-
-        if (gameState != GameState.Play) // si on est pas dans le karting game
-        {
-            elapsedTimeBeforeEndScene += Time.deltaTime; //le chrono du karting game ne bouge pas
             if (elapsedTimeBeforeEndScene >= endSceneLoadDelay)
             {
 
@@ -281,33 +149,6 @@ public class GameFlowManager : MonoBehaviour
             if (m_TimeManager.IsFinite && m_TimeManager.IsOver)
                 EndGame(false);
         }
-
-        if(SceneManager.GetActiveScene().name == "IntroMenu")
-        {
-            gameState= GameState.Intro;
-            
-        }
-        else if(SceneManager.GetActiveScene().name == "world")
-        {
-            gameState = GameState.World;
-           // SceneManager.LoadScene("world");
-        }
-        else if (SceneManager.GetActiveScene().name == "MainScene")
-        {
-            gameState = GameState.Play;
-            //SceneManager.LoadScene("MainScene");
-        }
-        else if (SceneManager.GetActiveScene().name == "WinScene")
-        {
-            gameState = GameState.Won;
-           // SceneManager.LoadScene("WinScene");
-        }
-        else if (SceneManager.GetActiveScene().name == "LoseScene")
-        {
-            gameState = GameState.Lost;
-            //SceneManager.LoadScene("LoseScene");
-        }
-
     }
 
     void EndGame(bool win)
@@ -346,15 +187,5 @@ public class GameFlowManager : MonoBehaviour
             loseDisplayMessage.delayBeforeShowing = delayBeforeWinMessage;
             loseDisplayMessage.gameObject.SetActive(true);
         }
-        // Au lieu de relancer la scène d'intro, on retourne dans la scène World
-        Invoke("ReturnToWorld", endSceneLoadDelay + delayBeforeFadeToBlack);
     }
-
-    void ReturnToWorld()
-    {
-        SceneManager.LoadScene(worldSceneName);
-        gameState = GameState.World;
-    }
-
-
 }
