@@ -180,16 +180,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "SCARLET ExPAnSE\n\n\n\n\n\nL'humanite, confrontee a l'epuisement des ressources
-    terrestres et animee par une insatiable soif de connaissance, s'est aventuree
-    dans les confins de l'espace. \n\nMars, la planete rouge, est devenue le premier
-    veritable foyer extraterrestre de l'humanite. Des decennies ont ete necessaires
-    pour construire la station spatiale \u201CMariner\", un avant-poste scientifique
-    et industriel concu pour explorer la planete et ses ressources. \nMais c\u2019est
-    sans compter, l'arrivee inattendue des extraterrestres !!!!\r\n\r\nLes xenos,
-    une espece extraterrestre insectoide, dotee d'une intelligence superieure et
-    d'une technologie avancee. ils ont observe l'humanite depuis longtemps et ont
-    decide d'entrer en contact."
+  m_text: "SCARLET ExPAnSE\n\n\n\n\n\nHumanity, faced with the exhaustion of Earth's
+    resources and driven by an insatiable thirst for knowledge, has ventured into
+    the far reaches of space.\n\nMars, the Red Planet, has become humanity's first
+    true extraterrestrial home. Decades were required to build the space station
+    \u201CMariner,\u201D a scientific and industrial outpost designed to explore
+    the planet and its resources.\nBut everything changed with the unexpected arrival
+    of extraterrestrials!\n\nThe xenos, an insectoid alien species with superior
+    intelligence and advanced technology, have been observing humanity for a long
+    time and have decided to make contact."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 470b11cf3b36b094db2c067e8eb09c68, type: 2}
   m_sharedMaterial: {fileID: -6201430086339999923, guid: 470b11cf3b36b094db2c067e8eb09c68,
