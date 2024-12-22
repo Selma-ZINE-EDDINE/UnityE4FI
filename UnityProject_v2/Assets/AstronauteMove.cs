@@ -5,18 +5,19 @@ using UnityEngine;
 public class AstronauteMove : MonoBehaviour
 {
     public float speed = 5f; // Vitesse de déplacement
+    public float rotationSpeed = 100f; // vitesse de rotation
     private Vector3 movement;
     public GameObject sphere;
 
     void Update()
     {
         // Récupérer l'entrée utilisateur (clavier)
-        movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
-
+        float rotationInput = Input.GetAxis("Horizontal"); // Rotation avec axe vertical
 
         //Calcul de la position du joueur si il fait son déplacement
-        Vector3 newPosition = transform.position + movement * speed * Time.deltaTime;
+        Vector3 forwardMovement = transform.forward * movement.z;
+        Vector3 newPosition = transform.position + forwardMovement * speed * Time.deltaTime;
 
         //Calcul limite de la sphere (serre)
         Vector3 sphereCenter = sphere.transform.position;
@@ -25,7 +26,12 @@ public class AstronauteMove : MonoBehaviour
         // Appliquer le mouvement au joueur si il ne fait pas sortir de la serre
         if (Vector3.Distance(newPosition, sphereCenter) <= sphereRadius)
         {
-            transform.Translate(movement * speed * Time.deltaTime, Space.World);
+            transform.position = newPosition;
+        }
+
+        if (rotationInput != 0)
+        {
+            transform.Rotate(Vector3.up, rotationInput * rotationSpeed * Time.deltaTime);
         }
     }
 }
