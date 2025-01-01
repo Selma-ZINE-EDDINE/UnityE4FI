@@ -1,1 +1,89 @@
-{"count":1,"self":147.1801216,"total":147.26019359999998,"children":{"InitializeActuators":{"count":1,"self":0.0030118999999999996,"total":0.0030118999999999996,"children":null},"InitializeSensors":{"count":1,"self":0.0015067,"total":0.0015067,"children":null},"AgentSendState":{"count":1677,"self":0.015220699999999998,"total":0.0755579,"children":{"CollectObservations":{"count":1677,"self":0.0603372,"total":0.0603372,"children":null}}}},"gauges":{},"metadata":{"timer_format_version":"0.1.0","start_time_seconds":"1734882876","unity_version":"2022.3.20f1","command_line_arguments":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Unity.exe -projectpath C:\\Users\\space\\Documents\\GitHub\\Infographie3D_ProjetE4\\UnityE4FI\\UnityProject_v2 -useHub -hubIPC -cloudEnvironment production -licensingIpc LicenseClient-space -hubSessionId b7f9c848-1957-4753-8d10-db6b53c89d8b -accessToken 9Nv7uRmBiEiZ4aorKmVa5D9m4KnO-Z9gmd9zl0RVRS8001f","communication_protocol_version":"1.5.0","com.unity.ml-agents_version":"2.0.1","scene_name":"IntroLore","end_time_seconds":"1734883023"}}{"count":1,"self":553.5547904,"total":553.566889,"children":{"InitializeActuators":{"count":1,"self":0.0010107999999999998,"total":0.0010107999999999998,"children":null},"InitializeSensors":{"count":1,"self":0.0025082,"total":0.0025082,"children":null},"AgentSendState":{"count":152,"self":0.0036412999999999997,"total":0.0085869,"children":{"CollectObservations":{"count":152,"self":0.0049456,"total":0.0049456,"children":null}}}},"gauges":{},"metadata":{"timer_format_version":"0.1.0","start_time_seconds":"1735485731","unity_version":"2022.3.20f1","command_line_arguments":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Unity.exe -projectpath C:\\Users\\zinee\\Desktop\\E4\\cours\\unity\\PROJET\\UnityE4FI\\UnityProject_v2 -useHub -hubIPC -cloudEnvironment production -licensingIpc LicenseClient-zinee -hubSessionId 5874cbe2-95b2-482d-a45f-0eea1fa7a3c2 -accessToken eh1py7MktL3UHURW7WfSZX3cMY2G_R7TayjdrJoOBQA001f","communication_protocol_version":"1.5.0","com.unity.ml-agents_version":"2.0.1","scene_name":"IntroLore","end_time_seconds":"1735486285"}}
+[
+    {
+      "count": 1,
+      "self": 147.1801216,
+      "total": 147.26019359999998,
+      "children": {
+        "InitializeActuators": {
+          "count": 1,
+          "self": 0.0030118999999999996,
+          "total": 0.0030118999999999996,
+          "children": null
+        },
+        "InitializeSensors": {
+          "count": 1,
+          "self": 0.0015067,
+          "total": 0.0015067,
+          "children": null
+        },
+        "AgentSendState": {
+          "count": 1677,
+          "self": 0.015220699999999998,
+          "total": 0.0755579,
+          "children": {
+            "CollectObservations": {
+              "count": 1677,
+              "self": 0.0603372,
+              "total": 0.0603372,
+              "children": null
+            }
+          }
+        }
+      },
+      "gauges": {},
+      "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1734882876",
+        "unity_version": "2022.3.20f1",
+        "command_line_arguments": "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Unity.exe -projectpath C:\\Users\\space\\Documents\\GitHub\\Infographie3D_ProjetE4\\UnityE4FI\\UnityProject_v2 -useHub -hubIPC -cloudEnvironment production -licensingIpc LicenseClient-space -hubSessionId b7f9c848-1957-4753-8d10-db6b53c89d8b -accessToken 9Nv7uRmBiEiZ4aorKmVa5D9m4KnO-Z9gmd9zl0RVRS8001f",
+        "communication_protocol_version": "1.5.0",
+        "com.unity.ml-agents_version": "2.0.1",
+        "scene_name": "IntroLore",
+        "end_time_seconds": "1734883023"
+      }
+    },
+    {
+      "count": 1,
+      "self": 553.5547904,
+      "total": 553.566889,
+      "children": {
+        "InitializeActuators": {
+          "count": 1,
+          "self": 0.0010107999999999998,
+          "total": 0.0010107999999999998,
+          "children": null
+        },
+        "InitializeSensors": {
+          "count": 1,
+          "self": 0.0025082,
+          "total": 0.0025082,
+          "children": null
+        },
+        "AgentSendState": {
+          "count": 152,
+          "self": 0.0036412999999999997,
+          "total": 0.0085869,
+          "children": {
+            "CollectObservations": {
+              "count": 152,
+              "self": 0.0049456,
+              "total": 0.0049456,
+              "children": null
+            }
+          }
+        }
+      },
+      "gauges": {},
+      "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1735485731",
+        "unity_version": "2022.3.20f1",
+        "command_line_arguments": "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.20f1\\Editor\\Unity.exe -projectpath C:\\Users\\zinee\\Desktop\\E4\\cours\\unity\\PROJET\\UnityE4FI\\UnityProject_v2 -useHub -hubIPC -cloudEnvironment production -licensingIpc LicenseClient-zinee -hubSessionId 5874cbe2-95b2-482d-a45f-0eea1fa7a3c2 -accessToken eh1py7MktL3UHURW7WfSZX3cMY2G_R7TayjdrJoOBQA001f",
+        "communication_protocol_version": "1.5.0",
+        "com.unity.ml-agents_version": "2.0.1",
+        "scene_name": "IntroLore",
+        "end_time_seconds": "1735486285"
+      }
+    }
+  ]
+  
